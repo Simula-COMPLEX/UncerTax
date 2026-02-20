@@ -1,0 +1,18 @@
+# Global directives for all crawlers (Google, Bing, etc.)
+User-agent: *
+Allow: /
+Sitemap: https://simula-complex.github.io/uncertax/sitemap.xml
+
+# Directives specifically for AI Research Bots
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Prevent indexing of temporary or broken files if any
+Disallow: /temp/
+Disallow: /drafts/

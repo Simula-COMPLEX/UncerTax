@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncertainty Taxonomy | Self-Adaptive Robotics</title>
+    
+    <meta name="title" content="Uncertainty Taxonomy for Self-Adaptive Robotics | Classification Framework">
+    <meta name="description" content="An interactive supplementary classification framework for identifying and mitigating uncertainty in self-adaptive robotics, derived from research published in IEEE Software.">
+    <meta name="keywords" content="Robotics, Self-Adaptive Systems, Uncertainty Taxonomy, IEEE Software, Aleatory Uncertainty, Epistemic Uncertainty, Machine Learning Robotics">
+    <meta name="author" content="Hassan Sartaj">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://simula-complex.github.io/uncertax/">
+    <meta property="og:title" content="Uncertainty Taxonomy for Self-Adaptive Robotics">
+    <meta property="og:description" content="Explore an interactive 13-dimension taxonomy of uncertainty in robotics, covering identification, sources, impacts, and mitigation techniques.">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Uncertainty Taxonomy for Self-Adaptive Robotics">
+    <meta property="twitter:description" content="Full classification framework for uncertainty in self-adaptive robotic systems.">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "Identifying Uncertainty in Self-Adaptive Robotics with Large Language Models",
+      "author": [
+        {"@type": "Person", "name": "Hassan Sartaj"},
+        {"@type": "Person", "name": "Jalil Boudjadar"},
+        {"@type": "Person", "name": "Mirgita Frasheri"},
+        {"@type": "Person", "name": "Shaukat Ali"},
+        {"@type": "Person", "name": "Peter Gorm Larsen"}
+      ],
+      "datePublished": "2026-02",
+      "publisher": {
+        "@type": "Organization",
+        "name": "IEEE Software"
+      },
+      "description": "This taxonomy provides a common vocabulary and structured classification to describe where uncertainty arises and how it impacts robotic systems."
+    }
+    </script>
+
+    <link rel="icon" href="images/robo-icon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="water-background"></div>
+    
+    <header class="hero">
+        <div class="container">
+            <h1 class="fade-in">UncerTax: Uncertainty Taxonomy for Self-Adaptive Robotics</h1>
+            <p class="subtitle fade-in">Supplementary Material</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="glass-card section-margin fade-in">
+            <h2>Introduction</h2>
+            <p>This page presents an uncertainty taxonomy (<b>UncerTax</b>) for self-adaptive robotics, providing a common vocabulary and structured classification to describe where uncertainty arises, how it behaves, and how it impacts robotic systems and their stakeholders. The taxonomy is derived from research on identifying uncertainty in self-adaptive systems, published in <i>IEEE Software</i> [1].</p>
+            <div class="reference-box">
+                <strong>Reference:</strong> 
+                <p>[1] Hassan Sartaj, Jalil Boudjadar, Mirgita Frasheri, Shaukat Ali, and Peter Gorm Larsen, "Identifying Uncertainty in Self-Adaptive Robotics With Large Language Models," <i>IEEE Software</i>, vol. 43, no. 1, pp. 89-97, Jan.-Feb. 2026, DOI: 10.1109/MS.2025.3620578. <a href="https://ieeexplore.ieee.org/document/11204018" target="_blank">Link</a></p>
+            </div>
+        </section>
+
+        <section class="section-margin">
+            <h2>Taxonomy Dimensions Overview</h2>
+            <p>The following dimensions serve as the interpretive basis for the taxonomy classification presented in the explorer below.</p>
+            
+            
+            
+            <div class="table-container">
+                <table class="dimensions-table">
+                    <thead>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Explanation</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Nature</strong></td><td>How uncertainty behaves: Deterministic/Stochastic, Static/Dynamic.</td><td>Stochastic: Random sensor noise; Dynamic: Moving target.</td></tr>
+                        <tr><td><strong>Type</strong></td><td>Nature of uncertainty: Aleatory (randomness) vs Epistemic (lack of knowledge).</td><td>Aleatory: Sensor noise; Epistemic: Incomplete map of the environment.</td></tr>
+                        <tr><td><strong>Stage</strong></td><td>When uncertainty occurs: Design, Development, Testing, or Operation stages.</td><td>Design: Incomplete requirements; Operation: Real-time obstacle detection.</td></tr>
+                        <tr><td><strong>Temporal</strong></td><td>Time characteristics: Short-Term/Transient and Long-Term/Persistent.</td><td>Short-Term: GPS signal loss; Long-Term: Sensor drift.</td></tr>
+                        <tr><td><strong>Context of Occurrence</strong></td><td>Where it arises: Environmental, Task, Interaction, or Mission.</td><td>Environmental: Weather; Task: Unclear goals; Interaction: User input.</td></tr>
+                        <tr><td><strong>Source of Adaptation</strong></td><td>Origin: External (environment) vs Internal (robot).</td><td>External: Changing environmental conditions; Internal: Hardware wear.</td></tr>
+                        <tr><td><strong>Scope</strong></td><td>Where uncertainty impacts: Local/Global, Component/System Level.</td><td>Local: Single sensor; Global: Uncertainty affecting the entire robot.</td></tr>
+                        <tr><td><strong>Risk/Severity</strong></td><td>How risky the uncertainty is: Low/High Risk.</td><td>High Risk: Uncertainty in braking during autonomous driving.</td></tr>
+                        <tr><td><strong>Affect</strong></td><td>What is impacted: Performance, Safety, Adaptability, or Reliability.</td><td>Safety: Avoiding collisions; Performance: Task completion.</td></tr>
+                        <tr><td><strong>Propagation</strong></td><td>How uncertainty spreads: Isolated versus Cascading.</td><td>Cascading: Localization error leading to path-planning errors.</td></tr>
+                        <tr><td><strong>Resolution</strong></td><td>Approach to handling: Reactive/Proactive, Manual/Automated.</td><td>Reactive: Robot reacts to obstacles; Proactive: Prediction models.</td></tr>
+                        <tr><td><strong>Data Characteristics</strong></td><td>Nature of data: Incomplete, Ambiguous, or Noisy.</td><td>Noisy: Sensor data errors; Ambiguous: Misinterpreted readings.</td></tr>
+                        <tr><td><strong>Ethical Implications</strong></td><td>Considerations for trust, transparency, bias, and fairness.</td><td>Bias: Incorrectly prioritizing users due to biased training data.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="section-margin">
+            <h2>Uncertainty Taxonomy Explorer</h2>
+            <p>Explore the full dataset. Each item expands to show the complete 13-dimension classification details.</p>
+
+            <div class="category-wrapper">
+                <h3>🔍 Identification Methods</h3>
+                <div class="accordion-list">
+                    <details class="taxonomy-item">
+                        <summary>Hardware specifications</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-term</div><div class="info-cell"><strong>Occurrence</strong>Hardware</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Low</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Assembling hardware parts</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Hardware, Environmental</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Bias</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Operations/ field testing</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Environmental, Software</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Analyzing deviations from expected behavior</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Long-term</div><div class="info-cell"><strong>Occurrence</strong>Software</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Adaptability, Performance</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Incomplete</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Formal modeling with nondeterminism</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-term</div><div class="info-cell"><strong>Occurrence</strong>Software, Environmental</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Performance, Adaptability</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Intuition</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Other</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Environmental</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Bias</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Proof of concept demonstration</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Hardware, Environmental</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Low</div><div class="info-cell"><strong>Affect</strong>Performance, Safety</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Component variations</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Hardware</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Sensor data analysis</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Environmental, Hardware</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="category-wrapper">
+                <h3>🌊 Common Sources of Uncertainty</h3>
+                <div class="accordion-list">
+                    <details class="taxonomy-item">
+                        <summary>Human Interaction Errors</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Sensor Noise</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Actuator Noise</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance, Safety</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Environment</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Adaptability, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Network Issues</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Performance, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Incomplete</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Hardware/ Mechanical Failure</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Incomplete</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Frequent Software Updates</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Adaptability, Performance</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Machine Learning Components</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Adaptability, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Bias</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>System Integration</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Adaptability, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Incomplete</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Mathematical Models/Parameter Inaccuracies</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Adaptability, Performance</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Localization Issues</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="category-wrapper">
+                <h3>⚠️ Uncertainty Impacts</h3>
+                <div class="accordion-list">
+                    <details class="taxonomy-item">
+                        <summary>Safety Risk</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Prediction Accuracy Suffers</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Performance, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Adds Complexity</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Incomplete</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Unpredictable Behavior/Wrong Actions</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Limit Scope of Verification Activities</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Increase Cost and Development Time</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Reduced Performance</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Reduced Autonomy/Human Intervention</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Adaptability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Incomplete</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Necessity for Frequent ML Training</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Adaptability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Bias</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Compromise Reliability</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Affects Usability</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Usability</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="category-wrapper">
+                <h3>🛡️ Mitigation Techniques</h3>
+                <div class="accordion-list">
+                    <details class="taxonomy-item">
+                        <summary>Risk Assessment</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Failure Identification/Localization</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Performance</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Use Additional Data Sources</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Performance</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Probabilistic Modeling of Errors/Failures</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Testing and Validation</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Performance</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Simulation/Digital Twins</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance, Adaptability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Incomplete</div><div class="info-cell"><strong>Ethical</strong>Bias</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Continuous Monitoring/Observers</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Adaptability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Behavior Comparison</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Theorem Proving/Formal Verification</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Hardware Upgrade</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>External</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Performance, Reliability</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Noisy</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Machine Learning/Data-Driven Methods</summary>
+                        <div class="info-grid">
+                            <div class="info-grid">
+                                <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Adaptability, Performance</div><div class="info-cell"><strong>Propagation</strong>Cascading</div><div class="info-cell"><strong>Data</strong>Ambiguous</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                            </div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Task Isolation</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Internal</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Precise</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Plausibility Checks</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Verified</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Isolated</div><div class="info-cell"><strong>Data</strong>Specific</div><div class="info-cell"><strong>Ethical</strong>Responsibility</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Sensor Fusion</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Integrated</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Real-time</div><div class="info-cell"><strong>Ethical</strong>Fairness</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Adaptive Planners/Safety Systems</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Adaptive</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Adaptability</div><div class="info-cell"><strong>Propagation</strong>High</div><div class="info-cell"><strong>Data</strong>Dynamic</div><div class="info-cell"><strong>Ethical</strong>Accountability</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Uncertainty Quantification</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Quantitative</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Performance</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Statistical</div><div class="info-cell"><strong>Ethical</strong>Transparency</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Human Aware Navigation</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Responsive</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>High</div><div class="info-cell"><strong>Data</strong>Context-aware</div><div class="info-cell"><strong>Ethical</strong>Ethics-Driven</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Trustworthiness Verification</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Verified</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Low</div><div class="info-cell"><strong>Data</strong>Comprehensive</div><div class="info-cell"><strong>Ethical</strong>Trust</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Compliance with Safety Standards</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Standardized</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Low</div><div class="info-cell"><strong>Data</strong>Specific</div><div class="info-cell"><strong>Ethical</strong>Regulation</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Software/Algorithms Upgrade</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Upgradable</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Performance, Reliability</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Modular</div><div class="info-cell"><strong>Ethical</strong>Adaptability</div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="category-wrapper">
+                <h3>🤖 Robotic Uncertainty Cases</h3>
+                <div class="accordion-list">
+                    <details class="taxonomy-item">
+                        <summary>Sensor Occlusion/LIDAR Errors</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Limited</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Real-time</div><div class="info-cell"><strong>Ethical</strong>Privacy</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Less Experienced Human Interaction</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Adaptive</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>Low</div><div class="info-cell"><strong>Data</strong>Context-aware</div><div class="info-cell"><strong>Ethical</strong>User-Centric</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Object Miss Detection/Localization</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Specific</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Performance</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Statistical</div><div class="info-cell"><strong>Ethical</strong>Responsibility</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Unexpected Navigation Behavior</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Adaptive</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Adaptability</div><div class="info-cell"><strong>Propagation</strong>High</div><div class="info-cell"><strong>Data</strong>Dynamic</div><div class="info-cell"><strong>Ethical</strong>Accountability</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Extreme Environmental Conditions</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Predictive</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Adaptability, Safety</div><div class="info-cell"><strong>Propagation</strong>High</div><div class="info-cell"><strong>Data</strong>Context-aware</div><div class="info-cell"><strong>Ethical</strong>Safety-Priority</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Inaccuracies in Object Interactions</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Limited</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Performance</div><div class="info-cell"><strong>Propagation</strong>Low</div><div class="info-cell"><strong>Data</strong>Specific</div><div class="info-cell"><strong>Ethical</strong>Responsibility</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Deviation from the Goal</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Adaptive</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Performance, Safety</div><div class="info-cell"><strong>Propagation</strong>High</div><div class="info-cell"><strong>Data</strong>Dynamic</div><div class="info-cell"><strong>Ethical</strong>Safety-Priority</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Interface Complexity</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Design</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Standardized</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Usability</div><div class="info-cell"><strong>Propagation</strong>Low</div><div class="info-cell"><strong>Data</strong>Modular</div><div class="info-cell"><strong>Ethical</strong>User-Centric</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Incorrect Parameters/Misconfigurations</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Verified</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Performance</div><div class="info-cell"><strong>Propagation</strong>Low</div><div class="info-cell"><strong>Data</strong>Modular</div><div class="info-cell"><strong>Ethical</strong>Responsibility</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Low Data Quality/Accuracy/Precision</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Verified</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Statistical</div><div class="info-cell"><strong>Ethical</strong>Data Integrity</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Localization Drift/Errors</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Limited</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Performance, Safety</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Real-time</div><div class="info-cell"><strong>Ethical</strong>Safety-Priority</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Unexpected Human Behavior</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Adaptive</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Safety, Reliability</div><div class="info-cell"><strong>Propagation</strong>High</div><div class="info-cell"><strong>Data</strong>Context-aware</div><div class="info-cell"><strong>Ethical</strong>User-Centric</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Self-collision</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Testing</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Limited</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Safety</div><div class="info-cell"><strong>Propagation</strong>Low</div><div class="info-cell"><strong>Data</strong>Specific</div><div class="info-cell"><strong>Ethical</strong>Safety-Priority</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Unexpected Sensor Malfunctions</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Dynamic, Stochastic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Operational</div><div class="info-cell"><strong>Temporal</strong>Short-Term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Predictive</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Reliability, Safety</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Real-time</div><div class="info-cell"><strong>Ethical</strong>Reliability-Focused</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Transfer Learning Challenges</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Epistemic</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Long-Term</div><div class="info-cell"><strong>Occurrence</strong>Global, System</div><div class="info-cell"><strong>Adaptation</strong>Adaptive</div><div class="info-cell"><strong>Scope</strong>Global, System</div><div class="info-cell"><strong>Risk</strong>High</div><div class="info-cell"><strong>Affect</strong>Adaptability, Performance</div><div class="info-cell"><strong>Propagation</strong>High</div><div class="info-cell"><strong>Data</strong>Statistical</div><div class="info-cell"><strong>Ethical</strong>Fairness-Oriented</div>
+                        </div>
+                    </details>
+                    <details class="taxonomy-item">
+                        <summary>Component Misalignment/Variability</summary>
+                        <div class="info-grid">
+                            <div class="info-cell"><strong>Nature</strong>Static, Deterministic</div><div class="info-cell"><strong>Type</strong>Aleatoric</div><div class="info-cell"><strong>Stage</strong>Development</div><div class="info-cell"><strong>Temporal</strong>Short-term</div><div class="info-cell"><strong>Occurrence</strong>Local, Component</div><div class="info-cell"><strong>Adaptation</strong>Limited</div><div class="info-cell"><strong>Scope</strong>Local, Component</div><div class="info-cell"><strong>Risk</strong>Moderate</div><div class="info-cell"><strong>Affect</strong>Reliability, Performance</div><div class="info-cell"><strong>Propagation</strong>Medium</div><div class="info-cell"><strong>Data</strong>Modular</div><div class="info-cell"><strong>Ethical</strong>Responsibility</div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- <p>© 2026 Hassan Sartaj</p> -->
+        <p class="tiny-text">Work supported by the <a href="https://robosapiens-eu.tech/" target="_blank" style="color: black;">RoboSAPIENS</a> project, funded through Horizon Europe Grant No. 101133807.</p>
+        <p class="copyright-text">© 2026 Hassan Sartaj | Simula Research Laboratory, Oslo, Norway</p>
+    </footer>
+</body>
+</html>
