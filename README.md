@@ -8,7 +8,7 @@ This repository contains an uncertainty taxonomy for self-adaptive robotics, der
 You can explore the taxonomy in two primary formats:
 
 * **[Interactive Web Page](https://simula-complex.github.io/uncertax/):** A web-based interface for dynamic exploration of taxonomy elements and their relationships.
-* **[PDF Version](./taxonomypdf/UncerTax_Uncertainty Taxonomy.pdf):** A tabular version of the taxonomy for offline reference and documentation.
+* **[PDF Version](./taxonomypdf/UncerTax_UncertaintyTaxonomy.pdf):** A tabular version of the taxonomy for offline reference and documentation.
 
 ---
 
